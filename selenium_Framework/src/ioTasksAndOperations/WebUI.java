@@ -15,21 +15,74 @@ import javax.imageio.ImageIO;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 public class WebUI 
 {
 	static WebDriver driver;
-	
+	static String xpath = null;
+	static String css= null;
 	public static void template()
 	{
 		try 
     	{ 
 			
+    	}
+    	catch (Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+		
+	}
+	
+	public static String getText(ArrayList<String> object)
+	{
+		String returnedText = null;
+		try 
+    	{ 
+			if(object.get(0).equals("xpath"))
+			{
+			xpath = object.get(1);
+			returnedText = driver.findElement(By.xpath(xpath)).getText();
+			}
+			
+    	}
+    	catch (Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+		return returnedText;
+		
+	}
+	
+	public static void maximizeWindow()
+	{
+		try 
+    	{ 
+			driver.manage().window().maximize();
+    	}
+    	catch (Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+		
+	}
+	
+	public static void selectOptionByLabel(ArrayList<String> object,String text, boolean bool)
+	{
+		try 
+    	{ 
+			if(object.get(0).equals("xpath"))
+			{
+				xpath = object.get(1);
+				new Select(driver. findElement(By.xpath(xpath))).selectByVisibleText(text);
+			}
     	}
     	catch (Exception e)
     	{
@@ -64,14 +117,27 @@ public class WebUI
 		
 	}
 	
-	public static void check(String xpath)
+	public static void check(ArrayList<String> object)
 	{
 		try 
-    	{ 
+    	{ 	
+			if(object.get(0).equals("xpath"))
+			{
+				xpath = object.get(1);
 			if(driver.findElement(By.xpath(xpath)).isSelected())
 			{
 				driver.findElement(By.xpath(xpath)).click();
 			}
+			}
+			else if(object.get(0).equals("css"))
+			{
+				css = object.get(1);
+				if(driver.findElement(By.cssSelector(css)).isSelected())
+				{
+					driver.findElement(By.cssSelector(css)).click();
+				}	
+			}
+			
     	}
     	catch (Exception e)
     	{
@@ -183,7 +249,7 @@ public class WebUI
 	
 	
     
-    public static void navigateToURL(String url)
+    public static void navigateToUrl(String url)
     {
     	
     	try 
@@ -197,11 +263,21 @@ public class WebUI
     		e.printStackTrace();
     	}
     }
-    public static void click(String xpath)
+    public static void click(ArrayList<String> object)
     {
     	try 
     	{ 
-    		driver.findElement(By.xpath(xpath)).click();
+    		
+			if(object.get(0).equals("xpath"))
+			{
+				xpath = object.get(1);
+				driver.findElement(By.xpath(xpath)).click();
+			}
+			else if(object.get(0).equals("css"))
+			{
+			css = object.get(1);
+			driver.findElement(By.cssSelector(css)).click();
+			}
     	}
     	catch (Exception e)
     	{
@@ -209,11 +285,15 @@ public class WebUI
     	}
     }
     
-    public static void setText(String xpath,String text)
+    public static void setText(ArrayList<String> object,String text)
     {
     	try 
     	{ 
+			if(object.get(0).equals("xpath"))
+			{
+				xpath = object.get(1);
     		driver.findElement(By.xpath(xpath)).sendKeys(text);
+			}
     	}
     	catch (Exception e)
     	{

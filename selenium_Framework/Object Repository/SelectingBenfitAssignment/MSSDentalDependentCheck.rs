@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+<description></description>
+<name>MSSDentalDependentCheck</name>
+<tag></tag>
+<elementGuidId></elementGuidId>
+<selectorCollection>
+<entry>
+<key>BASIC</key>
+<value></value>
+</entry>
+</selectorCollection>
+<selectorMethod>BASIC</selectorMethod>
+<useRalativeImagePath>false</useRalativeImagePath>
+<webElementProperties>
+<isSelected>true</isSelected>
+<matchCondition>equals</matchCondition>
+<name>xpath</name>
+<type>Main</type>
+<value>//table[@id='coverageTiers']/tbody/tr/td/input[@checked='']/../../td[2]</value>
+</webElementProperties>
+</WebElementEntity>

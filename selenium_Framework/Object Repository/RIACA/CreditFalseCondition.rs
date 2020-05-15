@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+<description></description>
+<name>CreditFalseCondition</name>
+<tag></tag>
+<elementGuidId></elementGuidId>
+<selectorCollection>
+<entry>
+<key>BASIC</key>
+<value></value>
+</entry>
+</selectorCollection>
+<selectorMethod>BASIC</selectorMethod>
+<useRalativeImagePath>false</useRalativeImagePath>
+<webElementProperties>
+<isSelected>true</isSelected>
+<matchCondition>equals</matchCondition>
+<name>xpath</name>
+<type>Main</type>
+<value>//*[@id='container']/form/table[1]/tbody/tr/td[6]/table[9]/tbody/tr[3]/td/table/tbody/tr[1]/td[4]/a</value>
+</webElementProperties>
+</WebElementEntity>

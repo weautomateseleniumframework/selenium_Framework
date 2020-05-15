@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+<description></description>
+<name>ComparePlanChoosenPlan</name>
+<tag></tag>
+<elementGuidId></elementGuidId>
+<selectorCollection>
+<entry>
+<key>BASIC</key>
+<value></value>
+</entry>
+</selectorCollection>
+<selectorMethod>BASIC</selectorMethod>
+<useRalativeImagePath>false</useRalativeImagePath>
+<webElementProperties>
+<isSelected>true</isSelected>
+<matchCondition>equals</matchCondition>
+<name>xpath</name>
+<type>Main</type>
+<value>//table[@id="contentTable"]/tbody[@id='planHeaderBody']/tr[1]/td[3]/table/tbody/tr/td[1]/span[@class="comparePlanSectionHeaderText"]</value>
+</webElementProperties>
+</WebElementEntity>

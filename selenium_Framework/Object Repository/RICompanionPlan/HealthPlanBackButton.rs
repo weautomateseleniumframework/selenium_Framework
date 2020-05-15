@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+<description></description>
+<name>HealthPlanBackButton</name>
+<tag></tag>
+<elementGuidId></elementGuidId>
+<selectorCollection>
+<entry>
+<key>BASIC</key>
+<value></value>
+</entry>
+</selectorCollection>
+<selectorMethod>BASIC</selectorMethod>
+<useRalativeImagePath>false</useRalativeImagePath>
+<webElementProperties>
+<isSelected>true</isSelected>
+<matchCondition>equals</matchCondition>
+<name>xpath</name>
+<type>Main</type>
+<value>.//*[@id='container']/table[2]/tbody/tr/td[6]/table[6]/tbody/tr[1]/td/table/tbody/tr/td[1]/a</value>
+</webElementProperties>
+</WebElementEntity>

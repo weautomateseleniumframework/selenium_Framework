@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+<description></description>
+<name>UpointCFG1</name>
+<tag></tag>
+<elementGuidId></elementGuidId>
+<selectorCollection>
+<entry>
+<key>BASIC</key>
+<value></value>
+</entry>
+</selectorCollection>
+<selectorMethod>BASIC</selectorMethod>
+<useRalativeImagePath>false</useRalativeImagePath>
+<webElementProperties>
+<isSelected>true</isSelected>
+<matchCondition>equals</matchCondition>
+<name>id</name>
+<type>Main</type>
+<value>_ParticipantLogon20_WAR_ahcommonauthportlet_testCfgList[1].cfgValue</value>
+</webElementProperties>
+</WebElementEntity>

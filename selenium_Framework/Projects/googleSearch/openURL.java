@@ -1,6 +1,6 @@
 package googleSearch;
 import ioTasksAndOperations.WebUI;
-import ioTasksAndOperations.GlobalVariables;
+import ioTasksAndOperations.GlobalVariable;
 import static ioTasksAndOperations.createGlobalVariable.updateGlobalVariables;
 
 import org.testng.annotations.BeforeTest;
@@ -18,8 +18,8 @@ public class openURL {
 	@Test
   public void openWebSiteandSearch() {
 	
-	  WebUI.navigateToURL(GlobalVariables.url);
-	  WebUI.setText(findTestObject("Object Repository/search_input"), GlobalVariables.search);
+	  WebUI.navigateToUrl(GlobalVariable.url);
+	  WebUI.setText(findTestObject("Object Repository/search_input"), GlobalVariable.search);
 	  WebUI.click(findTestObject("Object Repository/search_button"));
 //	  WebUI.takeScreenshot();
 

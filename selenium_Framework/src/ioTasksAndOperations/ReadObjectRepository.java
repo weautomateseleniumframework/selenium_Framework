@@ -1,5 +1,7 @@
 package ioTasksAndOperations;
 import java.io.File;
+import java.util.ArrayList;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
@@ -9,16 +11,19 @@ import org.w3c.dom.Element;
 public class ReadObjectRepository {
 
 	
-	public static String findTestObject(String objectloc)
+	public static ArrayList<String> findTestObject(String objectloc)
 	{
 		
 		String selectorMethod = null;
 		String xpath = null;
+		ArrayList<String> object = new ArrayList<String>();
+		String selector = "xpath";
 		String isSelected = null;
 		String tagName = null;
+		String cssValue = null;
 		Boolean propertyXpathbool = false;
 		 try {
-	         File inputFile = new File(System.getProperty("user.dir")+"\\"+objectloc+".xml");
+	         File inputFile = new File(System.getProperty("user.dir")+"\\Object Repository\\"+objectloc+".rs");
 	         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	         Document doc = dBuilder.parse(inputFile);
@@ -72,8 +77,7 @@ public class ReadObjectRepository {
 		   	         */
 	            	else if(selectorMethod.equals("BASIC"))
 	            	{
-	            		
-	            		
+	            	
 	                	 NodeList propertyList = doc.getElementsByTagName("webElementProperties");
 		       	         for (temp = 0; temp < propertyList.getLength(); temp++) 
 		       	         {
@@ -98,6 +102,12 @@ public class ReadObjectRepository {
 		       	            			xpath = xpathElement.getElementsByTagName("value").item(0).getTextContent();
 		       	            			propertyXpathbool = true;
 		       	            		}
+		       	            		else if(element.equals("css"))
+		       	            		{
+		       	            			selector = "css";
+		       	            			Element xpathElement = (Element) propertyNode;
+		       	            			cssValue = xpathElement.getElementsByTagName("value").item(0).getTextContent();
+		       	            		}
 		       	            		else
 		       	            		{
 		       	            			Element xpathElement = (Element) propertyNode;
@@ -111,6 +121,10 @@ public class ReadObjectRepository {
 		       	            	}
 		       	            }
 		       	         }
+		       	         
+		       	         if(tagName == null)
+		       	        	 tagName = "*";
+		       	         
 	            		if(propertyXpathbool == false)
 	            		xpath = "//"+tagName+"["+xpath + "]";
 	            		
@@ -123,7 +137,17 @@ public class ReadObjectRepository {
 	         e.printStackTrace();
 	      }
 		 
-		return xpath;	
+		 object.add(selector);
+		 if(selector.equals("css"))
+		 {
+			 object.add(cssValue);	 
+		 }
+		 else
+		 {
+		 object.add(xpath);
+		 }
+		 
+		return object;	
 	}
 	
 
